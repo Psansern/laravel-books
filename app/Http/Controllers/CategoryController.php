@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.create');
+        return view('admin.category.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -34,7 +35,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required'
+
+        ]);
+        Category::create($request->all());
+
+        return redirect()->route('category.index');
     }
 
     /**
