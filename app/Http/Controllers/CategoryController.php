@@ -13,8 +13,16 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        return view('admin.category.index');
+
+        //return view('admin.category.index');
+
+       $cats=category::latest()-> paginate(5);    // ให้ทำการแบ่งทุกๆ 5 หน้า find()= selct *form where=?
+        //$cats=category::
+        return view('admin.category.index',compact('cats'))
+        ->with('i',(request()->input('page',1)-1)*5);
+
     }
 
     /**
@@ -24,6 +32,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+
         return view('admin.category.create');
     }
 
