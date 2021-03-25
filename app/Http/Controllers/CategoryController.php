@@ -59,9 +59,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $id)
     {
-        //
+        return view('admin.category.editcats',compact('id'));
+
     }
 
     /**
@@ -72,7 +73,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cats=Category::where('id',$id)->get();
+        //select * from where id='??'
+
+        return view('admin.category.editcats',compact('cats'));
     }
 
     /**
@@ -82,9 +86,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Category $id)
     {
-        //
+        $request->validate([
+            'name'=>'required'
+
+        ]);
+        $id->name = $request->name;
+        $id->save();
+
+        return redirect()->route('category.index');
     }
 
     /**

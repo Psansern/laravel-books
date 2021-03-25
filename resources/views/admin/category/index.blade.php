@@ -28,12 +28,12 @@
                                 @foreach ($cats as $cat )
 
 
-    <th scope="row">{{ $cat->id }}</th>
+    <th scope="row">{{$cat->id}}</th>
                             <td> <a href="#">{{$cat->name }}</a></td>
                             <td>{{ $cat->created_at }}</td>
                             <td>
-                                <a  class="btn btn-danger" href="#">DELETE</a>
-                                <a  class="btn btn-primary"href="#">EDIT</a>
+                                <a  class="btn btn-primary" href="{{ route('category.edit',$cat->id) }}">แก้ไข</a>
+                                <a  class="btn btn-danger"href="">ลบ</a>
                             </td>
                           </tr>
                          @endforeach
