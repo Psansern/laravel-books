@@ -14,11 +14,11 @@
                     @endif
 
 
-                    <form action="{{ route('category.store') }}" method="POST">
+                    <form action="{{ route('books.store') }}" method="POST">
                         @csrf
 
                         <label>ชื่อรายการ</label>
-                        <select class="form-select" name="category">
+                        <select class="form-select" name="cat_id">
                             <option selected>เลือกชื่อรายการ</option>
                                  @foreach ($category as $cat )
                             <option value="{{$cat->id}}">{{$cat->name}}</option>

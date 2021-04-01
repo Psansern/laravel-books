@@ -37,7 +37,15 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cat_id'=>'required',
+            'book_name'=>'required',
+            'price'=>'required'
+
+        ]);
+        Books::create($request->all());
+
+        return redirect()->route('books.index');
     }
 
     /**
