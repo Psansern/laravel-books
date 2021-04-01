@@ -21,13 +21,13 @@
 
 
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
                         <label>ชื่อรายการ</label>
 
 
 
 
-                        <input type="text" name="" value="{{$cat->name}}">
+                        <input type="text" name="name" value="{{$cat->name}}">
 
                         <button type="submit" class="btn btn-success">แก้ไข</button>
                         <button type="reset" class="btn btn-danger">ยกเลิก</button>

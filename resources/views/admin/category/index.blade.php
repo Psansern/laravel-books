@@ -32,15 +32,15 @@
                             <td> <a href="#">{{$cat->name }}</a></td>
                             <td>{{ $cat->created_at }}</td>
                             <td>
-                                <form action="" method="POST">
+
+                                <form action="{{route('category.destroy',$cat->id)}}" method="POST">
                                 <a  class="btn btn-primary" href="{{ route('category.edit',$cat->id) }}">แก้ไข</a>
                                 @csrf
                      @method('DELETE')
 
-
-                  <button class="btn btn-danger" type="submit">Delete</button>
-
+                  <button class="btn btn-danger" type="submit">ลบ</button>
                                 </form>
+
                             </td>
                           </tr>
                          @endforeach

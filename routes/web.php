@@ -23,3 +23,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('category','CategoryController@index')->name('category');
 Route::resource('category','CategoryController');
+Route::resource('books','BooksController');
