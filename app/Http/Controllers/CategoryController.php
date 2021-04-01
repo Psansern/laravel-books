@@ -86,14 +86,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Category $id)
+    public function update(Request $request,$id)
     {
-        $request->validate([
-            'name'=>'required'
-
-        ]);
-        $id->name = $request->name;
-        $id->save();
+     $this->validate($request,[
+         'name'=>'required'
+     ]);
+            Category::find($id)->update($request->all());
 
         return redirect()->route('category.index');
     }

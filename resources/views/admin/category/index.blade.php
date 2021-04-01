@@ -32,8 +32,15 @@
                             <td> <a href="#">{{$cat->name }}</a></td>
                             <td>{{ $cat->created_at }}</td>
                             <td>
+                                <form action="" method="POST">
                                 <a  class="btn btn-primary" href="{{ route('category.edit',$cat->id) }}">แก้ไข</a>
-                                <a  class="btn btn-danger"href="">ลบ</a>
+                                @csrf
+                     @method('DELETE')
+
+
+                  <button class="btn btn-danger" type="submit">Delete</button>
+
+                                </form>
                             </td>
                           </tr>
                          @endforeach
